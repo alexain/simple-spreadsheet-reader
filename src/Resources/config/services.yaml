@@ -8,3 +8,12 @@ services:
     exclude:
       - '../../DependencyInjection'
       - '../../SimpleSpreadsheetReaderBundle.php'
+
+  _instanceof:
+    Alexain\SimpleSpreadsheetReader\Reader\SpreadsheetReaderInterface:
+      tags: ['simple_spreadsheet_reader.reader']
+
+  Alexain\SimpleSpreadsheetReader\Service\SimpleSpreadsheetReader:
+    arguments:
+      $readers: !tagged_iterator simple_spreadsheet_reader.reader
+
