@@ -7,11 +7,11 @@ use PHPUnit\Framework\TestCase;
 
 final class CsvReaderTest extends TestCase
 {
-    public function test_it_reads_csv_with_header(): void
+    public function testItReadsCsvWithHeader(): void
     {
         $reader = new CsvReader();
 
-        $path = __DIR__ . '/../Fixtures/simple.csv';
+        $path = __DIR__.'/../Fixtures/simple.csv';
         $rows = array_values(iterator_to_array($reader->read($path)));
 
         self::assertCount(4, $rows);
@@ -19,8 +19,8 @@ final class CsvReaderTest extends TestCase
         self::assertSame(
             [
                 'email' => 'john@example.com',
-                'name'  => 'John',
-                'age'   => '30',
+                'name' => 'John',
+                'age' => '30',
             ],
             $rows[0]
         );
@@ -28,8 +28,8 @@ final class CsvReaderTest extends TestCase
         self::assertSame(
             [
                 'email' => 'jane@example.com',
-                'name'  => 'Jane',
-                'age'   => '25',
+                'name' => 'Jane',
+                'age' => '25',
             ],
             $rows[1]
         );
@@ -37,8 +37,8 @@ final class CsvReaderTest extends TestCase
         self::assertSame(
             [
                 'email' => 'rob@example.com',
-                'name'  => 'Rob',
-                'age'   => '29',
+                'name' => 'Rob',
+                'age' => '29',
             ],
             $rows[2]
         );
@@ -46,8 +46,8 @@ final class CsvReaderTest extends TestCase
         self::assertSame(
             [
                 'email' => 'alex@example.com',
-                'name'  => 'Alex',
-                'age'   => '50',
+                'name' => 'Alex',
+                'age' => '50',
             ],
             $rows[3]
         );

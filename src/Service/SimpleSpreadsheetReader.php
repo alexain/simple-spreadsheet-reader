@@ -11,7 +11,7 @@ final class SimpleSpreadsheetReader
      * @param iterable<SpreadsheetReaderInterface> $readers
      */
     public function __construct(
-        private readonly iterable $readers
+        private readonly iterable $readers,
     ) {
     }
 

@@ -1,9 +1,6 @@
 <?php
 
-
 namespace Alexain\SimpleSpreadsheetReader\Reader;
-
-use SplFileObject;
 
 final class CsvReader implements SpreadsheetReaderInterface
 {
@@ -14,21 +11,21 @@ final class CsvReader implements SpreadsheetReaderInterface
 
     public function read(string $path): iterable
     {
-        $file = new SplFileObject($path);
+        $file = new \SplFileObject($path);
         $file->setFlags(
-            SplFileObject::READ_CSV
-            | SplFileObject::SKIP_EMPTY
-            | SplFileObject::DROP_NEW_LINE
+            \SplFileObject::READ_CSV
+            | \SplFileObject::SKIP_EMPTY
+            | \SplFileObject::DROP_NEW_LINE
         );
 
         $headers = null;
 
         foreach ($file as $row) {
-            if ($row === [null] || $row === false) {
+            if ($row === [null] || false === $row) {
                 continue;
             }
 
-            if ($headers === null) {
+            if (null === $headers) {
                 $headers = $row;
                 continue;
             }

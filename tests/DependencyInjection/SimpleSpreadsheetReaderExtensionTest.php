@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class SimpleSpreadsheetReaderExtensionTest extends TestCase
 {
-    public function test_it_registers_services_definitions(): void
+    public function testItRegistersServicesDefinitions(): void
     {
         $container = new ContainerBuilder();
         $extension = new SimpleSpreadsheetReaderExtension();

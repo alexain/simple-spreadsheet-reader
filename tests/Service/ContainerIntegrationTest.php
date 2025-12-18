@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Alexain\SimpleSpreadsheetReader\Tests\Service;
 
 use Alexain\SimpleSpreadsheetReader\DependencyInjection\SimpleSpreadsheetReaderExtension;
@@ -10,7 +9,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 final class ContainerIntegrationTest extends TestCase
 {
-    public function test_simple_spreadsheet_reader_receives_tagged_readers(): void
+    public function testSimpleSpreadsheetReaderReceivesTaggedReaders(): void
     {
         $container = new ContainerBuilder();
 
@@ -31,7 +30,7 @@ final class ContainerIntegrationTest extends TestCase
 
         $service = $container->get(SimpleSpreadsheetReader::class);
 
-        $path = __DIR__ . '/../Fixtures/simple.csv';
+        $path = __DIR__.'/../Fixtures/simple.csv';
         $rows = iterator_to_array($service->read($path));
 
         self::assertCount(4, $rows);

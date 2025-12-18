@@ -9,9 +9,9 @@ use PHPUnit\Framework\TestCase;
 
 final class SimpleSpreadsheetReaderTest extends TestCase
 {
-    public function test_it_delegates_to_supported_reader(): void
+    public function testItDelegatesToSupportedReader(): void
     {
-        $reader = new class() implements SpreadsheetReaderInterface {
+        $reader = new class implements SpreadsheetReaderInterface {
             public function supports(string $path): bool
             {
                 return str_ends_with($path, '.csv');
@@ -30,9 +30,9 @@ final class SimpleSpreadsheetReaderTest extends TestCase
         self::assertSame([['ok' => true, 'path' => '/tmp/file.csv']], $rows);
     }
 
-    public function test_it_throws_when_no_reader_supports_file(): void
+    public function testItThrowsWhenNoReaderSupportsFile(): void
     {
-        $reader = new class() implements SpreadsheetReaderInterface {
+        $reader = new class implements SpreadsheetReaderInterface {
             public function supports(string $path): bool
             {
                 return false;
