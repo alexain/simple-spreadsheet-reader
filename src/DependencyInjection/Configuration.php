@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Alexain\SimpleSpreadsheetReader\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
