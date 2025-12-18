@@ -1,0 +1,6 @@
+services:
+  Alexain\SimpleSpreadsheetReader\:
+    resource: '../../*'
+    exclude:
+      - '../../DependencyInjection'
+      - '../../SimpleSpreadsheetReaderBundle.php'
